@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: noto-sans;
+  src: url(/fonts/noto-sans.ttf);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: noto-sans;
 }
