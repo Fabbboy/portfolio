@@ -24,14 +24,12 @@ export default function Desktop() {
       0,
       AppType.Link,
       "CV.pdf",
-      "/elements/file.svg",
       "https://github.com/fabbboy/"
     ),
     new ApplicationInfo(
       0,
-      AppType.Link,
+      AppType.Folder,
       "CV.pdf",
-      "/elements/file.svg",
       "https://github.com/fabbboy/"
     ),
   ];

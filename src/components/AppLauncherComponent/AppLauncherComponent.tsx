@@ -1,3 +1,4 @@
+import AppType from "@/enums/AppType";
 import ApplicationInfo from "@/models/Application";
 import Image from "next/image";
 
@@ -13,7 +14,7 @@ const AppLauncherComponent = ({ app, launch_cb }: Props) => {
       className="flex flex-col items-center cursor-pointer"
     >
       <Image
-        src={app.icon}
+        src={app.type}
         width={64}
         height={64}
         alt={`launcher: ${app.name}`}
