@@ -7,7 +7,7 @@ const HeaderComponent = () => {
     <Card className="w-full bg-neutral-800 border-neutral-700 text-blue-100 p-4 rounded-xl shadow-md">
       <CardHeader className="p-0">
         <CardTitle>
-          <nav className="flex justify-between items-center max-w-screen-xl mx-auto">
+          <nav className="flex justify-between items-center mx-auto">
             <TitleComponent title="Portfolio" />
             <div className="flex items-center space-x-2">
               <Button
