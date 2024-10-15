@@ -1,4 +1,4 @@
-import { ArrowDownIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import { ClipboardIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
@@ -51,8 +51,8 @@ const HeroComponent = () => {
           size="lg"
           className="flex items-center justify-center space-x-2 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300 w-full md:w-auto"
         >
-          <ArrowDownIcon className="w-6 h-6" />
-          <span>Learn More</span>
+          <ClipboardIcon className="w-6 h-6" />
+          <span>Copy Email</span>
         </Button>
       </div>
     </div>
