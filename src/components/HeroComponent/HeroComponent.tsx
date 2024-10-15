@@ -16,7 +16,7 @@ const HeroComponent = () => {
       <h1 className="text-3xl md:text-4xl font-bold text-center text-neutral-100">
         Hi there! 👋 Welcome on my Portfolio!
       </h1>
-      <p className="text-lg text-center text-neutral-200">
+      <div className="text-lg text-center text-neutral-200">
         Application Developer apprentice working at
         <span className="inline-block mx-1">
           <Badge
@@ -35,7 +35,7 @@ const HeroComponent = () => {
             Appsteam
           </Badge>
         </span>
-      </p>
+      </div>
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-6">
         <Button
           variant="secondary"
