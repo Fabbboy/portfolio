@@ -29,6 +29,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Ensure 'Read and Write' permissions for Actions
+          publish_dir: ./build  # Adjust if your static output is in a different directory
