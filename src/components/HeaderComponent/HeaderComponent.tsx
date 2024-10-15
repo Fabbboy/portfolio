@@ -1,3 +1,4 @@
+import TitleComponent from "../TitleComponent";
 import { Button } from "../ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -7,10 +8,7 @@ const HeaderComponent = () => {
       <CardHeader className="p-0">
         <CardTitle>
           <nav className="flex justify-between items-center max-w-screen-xl mx-auto">
-            <div className="flex items-center space-x-4">
-              <div className="w-6 h-6 bg-blue-600 rounded-full"></div>
-              <h1 className="text-xl font-semibold">Portfolio</h1>
-            </div>
+            <TitleComponent title="Portfolio" />
             <div className="flex items-center space-x-2">
               <Button
                 variant="outline"
