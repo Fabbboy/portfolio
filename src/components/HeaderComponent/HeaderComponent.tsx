@@ -1,6 +1,13 @@
+import { TerminalIcon } from "lucide-react";
 import TitleComponent from "../TitleComponent";
 import { Button } from "../ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@radix-ui/react-tooltip";
 
 const HeaderComponent = () => {
   return (
@@ -27,6 +34,24 @@ const HeaderComponent = () => {
                   ></path>
                 </svg>
               </Button>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="flex items-center space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
+                    >
+                      <TerminalIcon className="w-6 h-6" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top" align="center">
+                    <div className="p-2 bg-neutral-700 text-neutral-100 rounded-lg shadow-lg m-2">
+                      <p className="text-sm font-semibold">Advanced Mode ;)</p>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
               <Button
                 variant="secondary"
                 size="sm"
