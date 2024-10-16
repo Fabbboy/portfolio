@@ -16,16 +16,16 @@ const HeaderComponent = () => {
         <CardTitle>
           <nav className="flex justify-between items-center mx-auto">
             <TitleComponent title="Portfolio" />
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center space-x-2 sm:space-x-2">
               <Button
                 variant="outline"
                 size="icon"
-                className="flex items-center  space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
+                className="flex items-center space-x-1 sm:space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
               >
                 <svg
                   viewBox="0 0 24 24"
                   aria-hidden="true"
-                  className="size-6 fill-current"
+                  className="w-5 h-5 sm:w-6 sm:h-6 fill-current"
                 >
                   <path
                     fillRule="evenodd"
@@ -40,9 +40,9 @@ const HeaderComponent = () => {
                     <Button
                       variant="outline"
                       size="icon"
-                      className="flex items-center space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
+                      className="flex items-center space-x-1 sm:space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
                     >
-                      <TerminalIcon className="w-6 h-6" />
+                      <TerminalIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent side="top" align="center">
@@ -55,7 +55,7 @@ const HeaderComponent = () => {
               <Button
                 variant="secondary"
                 size="sm"
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg shadow-lg transition duration-300"
+                className="flex items-center space-x-1 sm:space-x-2 bg-blue-600 hover:bg-blue-800 text-white font-semibold px-3 sm:px-4 py-2 rounded-lg shadow-lg transition duration-300"
               >
                 <span>Get in Touch</span>
               </Button>
