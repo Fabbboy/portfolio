@@ -24,7 +24,9 @@ const TerminalComponent = () => {
       <div
         ref={terminalRef}
         className="flex flex-col flex-start w-full h-96 p-3 space-y-2 overflow-y-auto bg-zinc-900 rounded-b-lg no-scrollbar"
-      ></div>
+      >
+        <h2 className="text-red-500 font-semibold">UNDER CONSTRUCTION</h2>
+      </div>
     </div>
   );
 };
