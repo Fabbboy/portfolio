@@ -50,31 +50,13 @@ const ProfileComponent = () => {
         </div>
 
         <div className="flex flex-wrap justify-center md:justify-start mt-4 gap-8">
-          <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-blue-400">{age}</span>
-            <span className="text-gray-400">Years Old</span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-blue-400">
-              {yearsOfExp}
-            </span>
-            <span className="text-gray-400">Years Experience</span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-blue-400">
-              {languages}
-            </span>
-            <span className="text-gray-400">Languages</span>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <span className="text-3xl font-bold text-blue-400">
-              {yearsInApprenticeship}
-            </span>
-            <span className="text-gray-400">Years in Training</span>
-          </div>
+          <HeadlineComponent number={age} topic="Years Old" />
+          <HeadlineComponent number={yearsOfExp} topic="Years Experience" />
+          <HeadlineComponent number={languages} topic="Languages" />
+          <HeadlineComponent
+            number={yearsInApprenticeship}
+            topic="Years in Training"
+          />
         </div>
 
         <p className="text-md sm:text-md md:text-lg text-gray-300 mt-8 max-w-lg">

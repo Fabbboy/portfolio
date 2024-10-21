@@ -5,11 +5,9 @@ type Props = {
 
 const HeadlineComponent: React.FC<Props> = ({ number, topic }) => {
   return (
-    <div className="text-gray-300 text-left">
-      <p className="md:text-3xl text-xl font-semibold text-blue-500 text-left block">
-        {number}
-      </p>
-      <p className="text-md font-semibold text-left block">{topic}</p>
+    <div className="flex flex-col items-center">
+      <span className="text-3xl font-bold text-blue-400">{number}</span>
+      <span className="text-gray-400">{topic}</span>
     </div>
   );
 };
