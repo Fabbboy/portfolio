@@ -4,7 +4,6 @@ import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
 import { CalendarIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
@@ -33,16 +32,17 @@ export default function Home() {
         <div className="flex flex-col items-center space-y-8">
           <div className="flex flex-col items-center space-y-4">
             <p className="text-3xl font-bold text-blue-400">Projects</p>
-            <span className="text-blue-200">
+            <span className="text-blue-200 text-center">
               Here you can find all the projects I have worked on in the past.
             </span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center justify-items-center">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
             <Card className="bg-neutral-800 border-neutral-700 text-blue-100 rounded-xl shadow-md w-full overflow-hidden">
               <CardContent className="p-4 space-y-4">
-                <div className="flex items-center space-x-6 w-full">
-                  <div className="flex flex-col flex-grow">
-                    <div className="flex justify-between items-center w-full space-x-8">
+                <div className="flex items-center space-x-6 w-full min-w-0">
+                  <div className="flex flex-col flex-grow min-w-0">
+                    <div className="flex justify-between items-center w-full space-x-4 min-w-0">
                       <span className="text-xl font-semibold text-blue-200 truncate">
                         Mobile App Redesign - Mobile Team
                       </span>
