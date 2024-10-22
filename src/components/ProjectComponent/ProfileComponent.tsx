@@ -31,7 +31,11 @@ const ProjectComponent: React.FC<Props> = ({ project }) => {
               {project.status}
             </Badge>
           </div>
-          <span className="text-sm text-blue-400">{project.role}</span>
+
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full min-w-0 space-y-1 sm:space-y-0">
+            <span className="text-sm text-blue-400">{project.role}</span>
+            <span className="text-sm text-blue-400">{project.owner}</span>
+          </div>
         </div>
 
         <div className="flex items-center space-x-2 text-blue-300">
@@ -42,7 +46,7 @@ const ProjectComponent: React.FC<Props> = ({ project }) => {
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag, index) => (
             <Badge key={index} className="bg-gray-700 text-white">
-              {tag}
+              #{tag}
             </Badge>
           ))}
         </div>
