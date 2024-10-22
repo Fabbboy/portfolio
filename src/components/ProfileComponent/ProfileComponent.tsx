@@ -33,13 +33,13 @@ const ProfileComponent = () => {
   }, [startedProgramming, startedApprenticeship, born]);
 
   return (
-    <section className="flex flex-col md:flex-row justify-center items-start p-4 sm:p-8 md:p-12 lg:p-16 max-w-screen-lg mx-auto space-y-8 md:space-y-0 md:space-x-10">
+    <section className="flex flex-col md:flex-row justify-center md:items-center p-4 sm:p-8 md:p-12 lg:p-16 max-w-screen-lg mx-auto space-y-8 md:space-y-0 md:space-x-10">
       {/* Image Container */}
-      <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 flex justify-center">
+      <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 flex justify-center md:justify-center">
         <Image
           src="profile.jpg"
           alt="Your Image"
-          width={400} // Slightly reduced size for better scaling
+          width={400}
           height={400}
           className="w-full h-auto sm:w-64 sm:h-64 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-sm"
         />
