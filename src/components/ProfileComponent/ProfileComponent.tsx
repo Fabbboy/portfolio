@@ -34,21 +34,24 @@ const ProfileComponent = () => {
 
   return (
     <section className="flex flex-col md:flex-row justify-center items-start p-4 sm:p-8 md:p-16 max-w-screen-lg mx-auto space-y-8 md:space-y-0 md:space-x-10">
+      {/* Image Container */}
       <div className="w-full sm:w-3/4 md:w-1/3 flex justify-center">
         <Image
           src="profile.jpg"
           alt="Your Image"
           width={600}
           height={600}
-          className="w-full h-auto sm:w-72 sm:h-72 md:h-72 rounded-sm"
+          className="w-full h-auto sm:w-72 sm:h-72 md:w-72 md:h-72 object-cover rounded-sm"
         />
       </div>
 
+      {/* Text Section */}
       <div className="w-full md:w-2/3 text-left">
         <div className="text-blue-100">
           <TitleComponent title="About Me" />
         </div>
 
+        {/* Headline Details */}
         <div className="flex flex-wrap justify-center md:justify-start mt-4 gap-8">
           <HeadlineComponent number={age} topic="Years Old" />
           <HeadlineComponent number={yearsOfExp} topic="Years Experience" />
@@ -59,6 +62,7 @@ const ProfileComponent = () => {
           />
         </div>
 
+        {/* Description */}
         <p className="text-md sm:text-md md:text-lg text-gray-300 mt-8 max-w-lg">
           I am a full-stack developer based in{" "}
           <span className="text-blue-400 font-semibold">
@@ -66,7 +70,9 @@ const ProfileComponent = () => {
           </span>
           , &#x1F1E8;&#x1F1ED;. I have a passion for learning new technologies
           and working on projects. I am currently focusing on{" "}
-          <span className="text-blue-400 font-semibold">Backend Developer</span>{" "}
+          <span className="text-blue-400 font-semibold">
+            Backend Development
+          </span>{" "}
           and <span className="text-blue-400 font-semibold">DevOps</span>. I
           worked with a variety of languages and frameworks, but I am most
           comfortable with{" "}
