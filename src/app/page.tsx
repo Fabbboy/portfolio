@@ -2,9 +2,7 @@ import { Separator } from "@radix-ui/react-separator";
 import HeaderComponent from "../components/HeaderComponent";
 import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { CalendarIcon } from "@heroicons/react/24/solid";
+import ProjectListComponent from "@/components/ProjectListComponent";
 
 export default function Home() {
   return (
@@ -29,47 +27,7 @@ export default function Home() {
           <div className="w-32 h-1 bg-blue-600 rounded-full"></div>
         </Separator>
 
-        <div className="flex flex-col items-center space-y-8">
-          <div className="flex flex-col items-center space-y-4">
-            <p className="text-3xl font-bold text-blue-400">Projects</p>
-            <span className="text-blue-200 text-center">
-              Here you can find all the projects I have worked on in the past.
-            </span>
-          </div>
-
-          {/* Adjust the grid for tablets */}
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          <Card className="bg-neutral-800 border-neutral-700 text-blue-100 rounded-xl shadow-md w-full overflow-hidden">
-              <CardContent className="p-4 md:p-6 space-y-4">
-                <div className="flex flex-col space-y-3 w-full min-w-0">
-                  <div className="flex justify-between items-center w-full space-x-4 min-w-0">
-                    <span className="text-lg md:text-xl font-semibold text-blue-200 truncate">
-                      Mobile App Redesign - Mobile Team
-                    </span>
-                    <Badge
-                      variant="secondary"
-                      className="bg-blue-600 text-white hover:bg-blue-800 whitespace-nowrap"
-                    >
-                      Ongoing
-                    </Badge>
-                  </div>
-                  <span className="text-sm text-blue-400">UI/UX Designer</span>
-                </div>
-
-                <div className="flex items-center space-x-2 text-blue-300">
-                  <CalendarIcon className="w-4 h-4" />
-                  <span className="text-sm">2023-09 - 2024-01</span>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  <Badge className="bg-gray-700 text-white">Figma</Badge>
-                  <Badge className="bg-gray-700 text-white">React Native</Badge>
-                  <Badge className="bg-gray-700 text-white">Sketch</Badge>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+        <ProjectListComponent />
 
         <Separator
           orientation="horizontal"
