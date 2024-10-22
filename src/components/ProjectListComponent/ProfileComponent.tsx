@@ -1,6 +1,25 @@
+"use client";
+import { useEffect, useState } from "react";
 import ProjectComponent from "../ProjectComponent";
+import { Project } from "./types";
+import axios from "axios";
 
 const ProjectListComponent = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  const fetchProjects = async () => {
+    try {
+      const response = await axios.get<Project[]>("/data/projects.json");
+      setProjects(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
   return (
     <div className="flex flex-col items-center space-y-8">
       <div className="flex flex-col items-center space-y-4">
@@ -11,13 +30,13 @@ const ProjectListComponent = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        <ProjectComponent
-          title="Mobile App Redesign - Mobile Team"
-          role="UI/UX Designer"
-          status="Ongoing"
-          startDate="2023-09"
-          endDate="2024-01"
-        />
+        {projects.length > 0 &&
+          projects
+            .slice(0)
+            .reverse()
+            .map((project, index) => (
+              <ProjectComponent key={index} project={project} />
+            ))}
       </div>
     </div>
   );

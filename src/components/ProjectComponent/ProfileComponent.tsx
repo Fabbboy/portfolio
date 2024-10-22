@@ -1,30 +1,18 @@
-"use client";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { CalendarIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
+import { Project, projectStatusMap } from "../ProjectListComponent/types";
 
-type ProjectStatus = "Ongoing" | "Completed" | "Paused" | "Canceled";
-
-type ProjectComponentProps = {
-  title: string;
-  role: string;
-  status: ProjectStatus;
-  startDate: string;
-  endDate: string;
+type Props = {
+  project: Project;
 };
 
-const ProjectComponent: React.FC<ProjectComponentProps> = ({
-  title,
-  role,
-  status,
-  startDate,
-  endDate,
-}) => {
+const ProjectComponent: React.FC<Props> = ({ project }) => {
   const [dateRange, setDateRange] = useState<string>("");
   useEffect(() => {
-    setDateRange(`${startDate} - ${endDate}`);
-  }, [startDate, endDate]);
+    setDateRange(`${project.startDate} - ${project.endDate}`);
+  }, [project]);
 
   return (
     <Card className="bg-neutral-800 border-neutral-700 text-blue-100 rounded-xl shadow-md w-full overflow-hidden">
@@ -32,16 +20,18 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
         <div className="flex flex-col space-y-3 w-full min-w-0">
           <div className="flex justify-between items-center w-full space-x-4 min-w-0">
             <span className="text-lg md:text-xl font-semibold text-blue-200 truncate">
-              {title}
+              {project.title}
             </span>
             <Badge
               variant="secondary"
-              className="bg-blue-600 text-white hover:bg-blue-800 whitespace-nowrap"
+              className={`text-white hover:bg-blue-800 whitespace-nowrap ${
+                projectStatusMap[project.status]
+              }`}
             >
-              {status}
+              {project.status}
             </Badge>
           </div>
-          <span className="text-sm text-blue-400">{role}</span>
+          <span className="text-sm text-blue-400">{project.role}</span>
         </div>
 
         <div className="flex items-center space-x-2 text-blue-300">
@@ -50,9 +40,11 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Badge className="bg-gray-700 text-white">Figma</Badge>
-          <Badge className="bg-gray-700 text-white">React Native</Badge>
-          <Badge className="bg-gray-700 text-white">Sketch</Badge>
+          {project.tags.map((tag, index) => (
+            <Badge key={index} className="bg-gray-700 text-white">
+              {tag}
+            </Badge>
+          ))}
         </div>
       </CardContent>
     </Card>
