@@ -11,11 +11,13 @@ const ProjectListComponent = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        <ProjectComponent />
-        <ProjectComponent />
-        <ProjectComponent />
-        <ProjectComponent />
-        <ProjectComponent />
+        <ProjectComponent
+          title="Mobile App Redesign - Mobile Team"
+          role="UI/UX Designer"
+          status="Ongoing"
+          startDate="2023-09"
+          endDate="2024-01"
+        />
       </div>
     </div>
   );
