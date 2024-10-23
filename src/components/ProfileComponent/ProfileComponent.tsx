@@ -21,6 +21,7 @@ const ProfileComponent = () => {
       "C",
       "C++",
       "x86 Assembly",
+      "Java"
     ].length
   );
 

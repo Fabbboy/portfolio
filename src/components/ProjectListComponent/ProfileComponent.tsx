@@ -3,13 +3,20 @@ import { useEffect, useState } from "react";
 import ProjectComponent from "../ProjectComponent";
 import { Project } from "./types";
 import axios from "axios";
+import { usePathname } from "next/navigation";
 
 const ProjectListComponent = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [host, setHost] = useState<string>("");
+
+  useEffect(() => {
+    setHost(window.location.origin);
+    console.log(window.location.origin);
+  }, []);
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get<Project[]>("/data/projects.json");
+      const response = await axios.get<Project[]>(`${host}/data/projects.json`);
       setProjects(response.data);
     } catch (error) {
       console.error(error);
@@ -18,7 +25,7 @@ const ProjectListComponent = () => {
 
   useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [host]);
 
   return (
     <div className="flex flex-col items-center space-y-8">
