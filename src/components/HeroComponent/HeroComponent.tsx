@@ -1,3 +1,4 @@
+"use client";
 import { ClipboardIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { Button } from "../ui/button";
@@ -41,6 +42,7 @@ const HeroComponent = () => {
           variant="secondary"
           size="lg"
           className="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300 w-full md:w-auto"
+          onClick={() => window.open("mailto:fabrice.schaub@swisscom.com")}
         >
           <EnvelopeIcon className="w-6 h-6" />
           <span>Get in Touch</span>
