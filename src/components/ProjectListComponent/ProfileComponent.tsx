@@ -10,8 +10,8 @@ const ProjectListComponent = () => {
   const [host, setHost] = useState<string>("");
 
   useEffect(() => {
-    setHost(window.location.origin);
-    console.log(window.location.origin);
+    setHost(window.location.href);
+    console.log(window.location.href);
   }, []);
 
   const fetchProjects = async () => {
