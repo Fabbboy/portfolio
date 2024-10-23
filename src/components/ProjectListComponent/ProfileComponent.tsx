@@ -10,10 +10,10 @@ const ProjectListComponent = () => {
 
   useEffect(() => {
     setHost(window.location.href);
-    console.log(window.location.href);
   }, []);
 
   const fetchProjects = async () => {
+    if (!host) return;
     try {
       const response = await axios.get<Project[]>(`${host}/data/projects.json`);
       setProjects(response.data);
