@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import ProjectComponent from "../ProjectComponent";
 import { Project } from "./types";
 import axios from "axios";
-import { usePathname } from "next/navigation";
 
 const ProjectListComponent = () => {
   const [projects, setProjects] = useState<Project[]>([]);
