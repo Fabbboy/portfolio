@@ -20,6 +20,7 @@ const HeaderComponent = () => {
               <Button
                 variant="outline"
                 size="icon"
+                onClick={() => window.open("https://github.com/fabbbboy")}
                 className="flex items-center  space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
               >
                 <svg
