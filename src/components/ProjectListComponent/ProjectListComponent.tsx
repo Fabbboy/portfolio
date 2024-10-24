@@ -13,19 +13,20 @@ const ProjectListComponent = () => {
     setHost(window.location.href);
   }, []);
 
-  const fetchProjects = async () => {
-    if (!host) return;
-    try {
-      const response = await axios.get<Project[]>(`${host}data/projects.json`);
-      setProjects(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchProjects = async () => {
+      if (!host) return;
+      try {
+        const response = await axios.get<Project[]>(
+          `${host}data/projects.json`
+        );
+        setProjects(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     fetchProjects();
-  }, [host, fetchProjects]);
+  }, [host]);
 
   return (
     <div className="flex flex-col items-center space-y-8">

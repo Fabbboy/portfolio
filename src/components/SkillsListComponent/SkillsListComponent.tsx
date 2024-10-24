@@ -13,19 +13,21 @@ const SkillsListComponent = () => {
     setHost(window.location.href);
   }, []);
 
-  const fetchProjects = async () => {
-    if (!host) return;
-    try {
-      const response = await axios.get<SkillItem[]>(`${host}data/skills.json`);
-      setProjects(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchProjects = async () => {
+      if (!host) return;
+      try {
+        const response = await axios.get<SkillItem[]>(
+          `${host}data/skills.json`
+        );
+        setProjects(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchProjects();
-  }, [host, fetchProjects]);
+  }, [host]);
 
   return (
     <div className="flex flex-col items-center justify-center px-4">
