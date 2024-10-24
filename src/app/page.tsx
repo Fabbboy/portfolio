@@ -42,13 +42,6 @@ export default function Home() {
           <span className="text-blue-200 text-center">
             Here you can find all the skills I have acquired in the past.
           </span>
-
-          <Card className="bg-neutral-800 border-neutral-700 text-blue-100 rounded-xl shadow-md overflow-hidden w-1/2">
-            <CardTitle className="p-4 md:p-6 text-lg md:text-xl font-semibold text-blue-200">
-              <TitleComponent title="Skills" />
-            </CardTitle>
-            <CardContent className="p-4 md:p-6 text-blue-200"></CardContent>
-          </Card>
         </div>
       </div>
     </main>
