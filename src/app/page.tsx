@@ -4,6 +4,7 @@ import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
 import ProjectListComponent from "@/components/ProjectListComponent";
 import SkillsListComponent from "@/components/SkillsListComponent";
+import SectionStartComponent from "@/components/SectionStartComponent";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <HeaderComponent />
       <HeroComponent />
 
-      <div className="space-y-5">
+      <div className="space-y-8">
         <Separator
           orientation="horizontal"
           className="w-full flex justify-center items-center"
@@ -38,6 +39,19 @@ export default function Home() {
         </Separator>
 
         <SkillsListComponent />
+        <Separator
+          orientation="horizontal"
+          className="w-full flex justify-center items-center"
+        >
+          <div className="w-32 h-1 bg-blue-600 rounded-full"></div>
+        </Separator>
+
+        <div className="flex flex-col items-center justify-center px-4">
+          <SectionStartComponent
+            title="Testimonials"
+            description="Here you can find some testimonials from people I have worked with."
+          />
+        </div>
       </div>
     </main>
   );
