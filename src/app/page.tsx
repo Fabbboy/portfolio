@@ -3,8 +3,6 @@ import HeaderComponent from "../components/HeaderComponent";
 import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
 import ProjectListComponent from "@/components/ProjectListComponent";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import TitleComponent from "@/components/TitleComponent";
 
 export default function Home() {
   return (
