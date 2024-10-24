@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SectionStartComponent from "../SectionStartComponent";
 import SkillItemComponent from "../SkillItemComponent";
 import axios from "axios";
+import { SkillItem } from "../SkillItemComponent/types";
 
 const SkillsListComponent = () => {
   const [projects, setProjects] = useState<SkillItem[]>([]);

@@ -1,3 +1,5 @@
+import { SkillItem } from "./types";
+
 type Props = {
   skillItem: SkillItem;
 };
