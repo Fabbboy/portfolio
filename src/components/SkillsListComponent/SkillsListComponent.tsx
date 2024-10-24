@@ -16,7 +16,7 @@ const SkillsListComponent = () => {
   const fetchProjects = async () => {
     if (!host) return;
     try {
-      const response = await axios.get<SkillItem[]>(`${host}/data/skills.json`);
+      const response = await axios.get<SkillItem[]>(`${host}data/skills.json`);
       setProjects(response.data);
     } catch (error) {
       console.error(error);

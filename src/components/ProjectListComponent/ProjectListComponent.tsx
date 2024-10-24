@@ -16,7 +16,7 @@ const ProjectListComponent = () => {
   const fetchProjects = async () => {
     if (!host) return;
     try {
-      const response = await axios.get<Project[]>(`${host}/data/projects.json`);
+      const response = await axios.get<Project[]>(`${host}data/projects.json`);
       setProjects(response.data);
     } catch (error) {
       console.error(error);
