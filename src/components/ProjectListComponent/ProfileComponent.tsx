@@ -25,7 +25,7 @@ const ProjectListComponent = () => {
 
   useEffect(() => {
     fetchProjects();
-  }, [host]);
+  }, [host, fetchProjects]);
 
   return (
     <div className="flex flex-col items-center space-y-8">
