@@ -1,3 +1,4 @@
+"use client";
 import { TerminalIcon } from "lucide-react";
 import TitleComponent from "../TitleComponent";
 import { Button } from "../ui/button";
@@ -10,6 +11,10 @@ import {
 } from "@radix-ui/react-tooltip";
 
 const HeaderComponent = () => {
+  const openLink = (url: string) => {
+    window.open(url);
+  };
+
   return (
     <Card className="w-full bg-neutral-800 border-neutral-700 text-blue-100 p-4 rounded-xl shadow-md">
       <CardHeader className="p-0">
@@ -20,7 +25,7 @@ const HeaderComponent = () => {
               <Button
                 variant="outline"
                 size="icon"
-                onClick={() => window.open("https://github.com/fabbbboy")}
+                onClick={() => openLink("https://github.com/fabbboy")}
                 className="flex items-center  space-x-2 bg-neutral-800 hover:bg-neutral-600 text-neutral-100 font-semibold px-2 py-2 rounded-lg shadow-lg transition duration-300 border border-neutral-700"
               >
                 <svg

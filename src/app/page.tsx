@@ -5,6 +5,7 @@ import ProfileComponent from "@/components/ProfileComponent";
 import ProjectListComponent from "@/components/ProjectListComponent";
 import SkillsListComponent from "@/components/SkillsListComponent";
 import SectionStartComponent from "@/components/SectionStartComponent";
+import TaskbarComponent from "@/components/TaskbarComponent";
 
 export default function Home() {
   return (
@@ -29,8 +30,7 @@ export default function Home() {
           <div className="w-32 h-1 bg-blue-600 rounded-full"></div>
         </Separator>
 
-        <ProjectListComponent />
-
+        <SkillsListComponent />
         <Separator
           orientation="horizontal"
           className="w-full flex justify-center items-center"
@@ -38,7 +38,8 @@ export default function Home() {
           <div className="w-32 h-1 bg-blue-600 rounded-full"></div>
         </Separator>
 
-        <SkillsListComponent />
+        <ProjectListComponent />
+
         <Separator
           orientation="horizontal"
           className="w-full flex justify-center items-center"
@@ -52,6 +53,7 @@ export default function Home() {
             description="Here you can find some testimonials from people I have worked with."
           />
         </div>
+        <TaskbarComponent />
       </div>
     </main>
   );
