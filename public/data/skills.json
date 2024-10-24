@@ -6,5 +6,29 @@
   {
     "name": "NextJS",
     "icon": "icons/next.svg"
+  },
+  {
+    "name": "C/C++",
+    "icon": "icons/cc.svg"
+  },
+  {
+    "name": "HTML/CSS",
+    "icon": "icons/html.svg"
+  },
+  {
+    "name": "RaspberryPi",
+    "icon": "icons/raspberry.svg"
+  },
+  {
+    "name": "Python",
+    "icon": "icons/python.svg"
+  },
+  {
+    "name": "GO",
+    "icon": "icons/golang.svg"
+  },
+  {
+    "name": "Rust",
+    "icon": "icons/rust.svg"
   }
 ]

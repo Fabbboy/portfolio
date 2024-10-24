@@ -11,7 +11,7 @@ const SkillItemComponent: React.FC<Props> = ({ skillItem }) => {
       <div className="flex flex-col items-center justify-center">
         <Image
           src={skillItem.icon}
-          className="w-8 h-8"
+          className="w-8 h-8 rounded-sm"
           alt={skillItem.name}
           width={32}
           height={32}
