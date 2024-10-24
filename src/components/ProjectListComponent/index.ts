@@ -1,2 +1,2 @@
-import ProjectListComponent from "./ProfileComponent";
+import ProjectListComponent from "./ProjectListComponent";
 export default ProjectListComponent;

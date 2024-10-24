@@ -1,3 +1,10 @@
-{
-  
-}
+[
+  {
+    "name": "Typescript",
+    "icon": "icons/typescript.svg"
+  },
+  {
+    "name": "NextJS",
+    "icon": "icons/next.svg"
+  }
+]
