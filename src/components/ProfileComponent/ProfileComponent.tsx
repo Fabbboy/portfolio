@@ -21,7 +21,7 @@ const ProfileComponent = () => {
       "C",
       "C++",
       "x86 Assembly",
-      "Java"
+      "Java",
     ].length
   );
 
@@ -65,7 +65,9 @@ const ProfileComponent = () => {
 
         {/* Description */}
         <p className="text-md sm:text-md md:text-lg text-gray-300 mt-8 max-w-lg">
-          I am a full-stack developer based in{" "}
+          My name is{" "}
+          <span className="text-blue-400 font-semibold">Fabrice</span>. I
+          am a full-stack developer based in{" "}
           <span className="text-blue-400 font-semibold">
             Baselland, Switzerland
           </span>
