@@ -3,7 +3,7 @@ import HeaderComponent from "../components/HeaderComponent";
 import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
 import ProjectListComponent from "@/components/ProjectListComponent";
-import SkillsListComponent from "@/components/SkillsListComponent";
+import SkillsListComponent from "@/components/SkillsListComponent"; 
 import TaskbarComponent from "@/components/TaskbarComponent";
 import TestimonialListComponent from "@/components/TestimonialListComponent";
 

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home } from "lucide-react";
 import Link from "next/link";
@@ -29,15 +29,15 @@ export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
   const TIMEOUT = 3000;
-  let hideTimer: NodeJS.Timeout;
+  const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startHideTimeout = () => {
-    if (hideTimer) clearTimeout(hideTimer);
-    hideTimer = setTimeout(() => {
+  const startHideTimeout = useCallback(() => {
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+    hideTimerRef.current = setTimeout(() => {
       setIsVisible(false);
       setShowIndicator(true);
     }, TIMEOUT);
-  };
+  }, [TIMEOUT]);
 
   useEffect(() => {
     if (isVisible) {
@@ -47,7 +47,7 @@ export default function TaskbarComponent() {
       const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
       return () => clearTimeout(indicatorTimer);
     }
-  }, [isVisible]);
+  }, [isVisible, startHideTimeout]);
 
   const showTaskbar = () => {
     setIsVisible(true);
