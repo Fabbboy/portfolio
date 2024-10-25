@@ -4,7 +4,6 @@ import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
 import ProjectListComponent from "@/components/ProjectListComponent";
 import SkillsListComponent from "@/components/SkillsListComponent";
-import SectionStartComponent from "@/components/SectionStartComponent";
 import TaskbarComponent from "@/components/TaskbarComponent";
 import TestimonialListComponent from "@/components/TestimonialListComponent";
 
