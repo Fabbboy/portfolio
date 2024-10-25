@@ -7,6 +7,7 @@ export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
+  let hideTimer;
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
@@ -19,30 +20,38 @@ export default function TaskbarComponent() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Timeout handler for hiding the taskbar after inactivity
+  const startHideTimeout = () => {
+    if (hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(
+      () => {
+        setIsVisible(false);
+        setShowIndicator(true);
+      },
+      isMobile ? 4000 : 3000
+    );
+  };
+
   useEffect(() => {
     if (isVisible) {
       setShowIndicator(false); // Hide indicator once navbar is visible
-
-      if (!isMobile) {
-        const timer = setTimeout(() => {
-          setIsVisible(false);
-          setShowIndicator(true); // Re-show indicator after hiding
-        }, 3000);
-        return () => clearTimeout(timer);
-      }
-    } else if (!isVisible) {
+      startHideTimeout();
+    } else {
       const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
       return () => clearTimeout(indicatorTimer);
     }
   }, [isVisible, isMobile]);
 
-  const toggleTaskbar = () => setIsVisible((prev) => !prev);
+  const showTaskbar = () => {
+    setIsVisible(true);
+    startHideTimeout(); // Restart hide timeout on each interaction
+  };
 
   return (
     <div
-      onClick={isMobile ? toggleTaskbar : undefined}
-      onMouseEnter={!isMobile ? () => setIsVisible(true) : undefined}
-      onMouseLeave={!isMobile ? () => setIsVisible(false) : undefined}
+      onMouseEnter={showTaskbar}
+      onMouseLeave={startHideTimeout}
+      onTouchStart={showTaskbar} // Show taskbar on touch and restart timeout
       className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
     >
       {/* Indicator */}
@@ -80,7 +89,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={toggleTaskbar}
+              onClick={() => setIsVisible(false)}
             >
               <Home className="w-5 h-5" />
             </motion.button>
@@ -88,7 +97,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={toggleTaskbar}
+              onClick={() => setIsVisible(false)}
             >
               <Briefcase className="w-5 h-5" />
             </motion.button>
@@ -96,7 +105,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={toggleTaskbar}
+              onClick={() => setIsVisible(false)}
             >
               <User className="w-5 h-5" />
             </motion.button>
@@ -104,7 +113,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={toggleTaskbar}
+              onClick={() => setIsVisible(false)}
             >
               <MessageSquare className="w-5 h-5" />
             </motion.button>
