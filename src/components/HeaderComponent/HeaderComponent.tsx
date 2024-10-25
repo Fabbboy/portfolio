@@ -16,7 +16,7 @@ const HeaderComponent = () => {
   };
 
   return (
-    <Card className="w-full bg-neutral-800 border-neutral-700 text-blue-100 p-4 rounded-xl shadow-md">
+    <Card className="w-full bg-neutral-800 border-neutral-700 text-blue-100 p-2 md:p-4 rounded-xl shadow-md">
       <CardHeader className="p-0">
         <CardTitle>
           <nav className="flex justify-between items-center mx-auto">
