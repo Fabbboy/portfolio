@@ -1,7 +1,4 @@
 "use client";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent } from "@/components/ui/card";
 import SectionStartComponent from "../SectionStartComponent";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
