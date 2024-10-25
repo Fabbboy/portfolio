@@ -14,18 +14,24 @@ export default function TaskbarComponent() {
     }
   }, [isVisible]);
 
-  const handleHover = () => {
+  const showTaskbar = () => {
     setIsVisible(true);
   };
 
-  const handleClick = () => {
+  const hideTaskbar = () => {
     setIsVisible(false);
+  };
+
+  const handleInteraction = () => {
+    setIsVisible(true);
   };
 
   return (
     <div
-      onMouseEnter={handleHover}
-      onMouseLeave={handleClick}
+      onMouseEnter={showTaskbar}
+      onMouseLeave={hideTaskbar}
+      onTouchStart={handleInteraction} // Handle touch devices
+      onTouchEnd={hideTaskbar} // Hide on touch end
       className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
     >
       <nav
@@ -35,25 +41,25 @@ export default function TaskbarComponent() {
       >
         <button
           className="flex flex-col items-center justify-center space-y-1"
-          onClick={handleClick}
+          onClick={hideTaskbar}
         >
           <Home className="w-5 h-5" />
         </button>
         <button
           className="flex flex-col items-center justify-center space-y-1"
-          onClick={handleClick}
+          onClick={hideTaskbar}
         >
           <Briefcase className="w-5 h-5" />
         </button>
         <button
           className="flex flex-col items-center justify-center space-y-1"
-          onClick={handleClick}
+          onClick={hideTaskbar}
         >
           <User className="w-5 h-5" />
         </button>
         <button
           className="flex flex-col items-center justify-center space-y-1"
-          onClick={handleClick}
+          onClick={hideTaskbar}
         >
           <MessageSquare className="w-5 h-5" />
         </button>
