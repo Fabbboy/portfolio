@@ -20,7 +20,6 @@ export default function TaskbarComponent() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Timeout handler for hiding the taskbar after inactivity
   const startHideTimeout = () => {
     if (hideTimer) clearTimeout(hideTimer);
     hideTimer = setTimeout(
@@ -34,7 +33,7 @@ export default function TaskbarComponent() {
 
   useEffect(() => {
     if (isVisible) {
-      setShowIndicator(false); // Hide indicator once navbar is visible
+      setShowIndicator(false);
       startHideTimeout();
     } else {
       const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
@@ -44,17 +43,16 @@ export default function TaskbarComponent() {
 
   const showTaskbar = () => {
     setIsVisible(true);
-    startHideTimeout(); // Restart hide timeout on each interaction
+    startHideTimeout();
   };
 
   return (
     <div
       onMouseEnter={showTaskbar}
       onMouseLeave={startHideTimeout}
-      onTouchStart={showTaskbar} // Show taskbar on touch and restart timeout
+      onTouchStart={showTaskbar}
       className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
     >
-      {/* Indicator */}
       <AnimatePresence>
         {!isVisible && showIndicator && (
           <motion.div
