@@ -51,8 +51,8 @@ export default function Home() {
           title="Testimonials"
           description="Here you can find some testimonials from people I have worked with."
         />
-        <TaskbarComponent />
       </div>
+      <TaskbarComponent />
     </main>
   );
 }
