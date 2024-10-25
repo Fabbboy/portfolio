@@ -10,7 +10,7 @@ type Props = {
   icon: React.ReactNode;
 };
 
-const Route: React.FC<Props> = ({ route, setIsVisible, icon }) => {
+const NavRouteComponent: React.FC<Props> = ({ route, setIsVisible, icon }) => {
   return (
     <Link href={route} passHref>
       <motion.button
@@ -105,7 +105,7 @@ export default function TaskbarComponent() {
             }}
             className="h-12 w-[300px] bg-neutral-800 text-white flex justify-around items-center shadow-lg rounded-full"
           >
-            <Route
+            <NavRouteComponent
               route="/"
               setIsVisible={setIsVisible}
               icon={<Home className="w-5 h-5" />}
