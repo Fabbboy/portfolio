@@ -1,11 +1,12 @@
 "use client";
+
 import SectionStartComponent from "../SectionStartComponent";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TestimonialComponent from "../TestimonialComponent";
 import { TestimonialItem } from "../TestimonialComponent/types";
 
-const TestimonialListComponent = () => {
+export default function TestimonialListComponent() {
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
   const [host, setHost] = useState<string>("");
 
@@ -35,14 +36,16 @@ const TestimonialListComponent = () => {
         title="Testimonials"
         description="Here you can find some testimonials from people I have worked with."
       />
-      <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 sm:mt-12 flex flex-wrap justify-center gap-6">
         {testimonials.map((testimonial, index) => (
-          <TestimonialComponent key={index} testimonial={testimonial} />
+          <div
+            key={index}
+            className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex justify-center"
+          >
+            <TestimonialComponent testimonial={testimonial} />
+          </div>
         ))}
       </div>
     </div>
   );
-  
-};
-
-export default TestimonialListComponent;
+}
