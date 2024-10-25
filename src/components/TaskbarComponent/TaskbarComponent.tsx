@@ -27,30 +27,16 @@ const NavRouteComponent: React.FC<Props> = ({ route, setIsVisible, icon }) => {
 
 export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
+  const TIMEOUT = 3000;
   let hideTimer: NodeJS.Timeout;
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const startHideTimeout = () => {
     if (hideTimer) clearTimeout(hideTimer);
-    hideTimer = setTimeout(
-      () => {
-        setIsVisible(false);
-        setShowIndicator(true);
-      },
-      isMobile ? 4000 : 3000
-    );
+    hideTimer = setTimeout(() => {
+      setIsVisible(false);
+      setShowIndicator(true);
+    }, TIMEOUT);
   };
 
   useEffect(() => {
@@ -61,7 +47,7 @@ export default function TaskbarComponent() {
       const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
       return () => clearTimeout(indicatorTimer);
     }
-  }, [isVisible, isMobile]);
+  }, [isVisible]);
 
   const showTaskbar = () => {
     setIsVisible(true);
