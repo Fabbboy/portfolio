@@ -1,32 +1,8 @@
 [
   {
     "name": "Ein Name",
-    "role": "Former Developer, The Appsteam",
-    "content": "It was a joy working with Fabrice. He is a very talented developer and a great team player. He is always willing to help and share his knowledge with others. I would highly recommend him for any development team.",
-    "avatarSrc": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Ein Name",
-    "role": "Former Developer, The Appsteam",
-    "content": "It was a joy working with Fabrice. He is a very talented developer and a great team player. He is always willing to help and share his knowledge with others. I would highly recommend him for any development team.",
-    "avatarSrc": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Ein Name",
-    "role": "Former Developer, The Appsteam",
-    "content": "It was a joy working with Fabrice. He is a very talented developer and a great team player. He is always willing to help and share his knowledge with others. I would highly recommend him for any development team.",
-    "avatarSrc": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Ein Name",
-    "role": "Former Developer, The Appsteam",
-    "content": "It was a joy working with Fabrice. He is a very talented developer and a great team player. He is always willing to help and share his knowledge with others. I would highly recommend him for any development team.",
-    "avatarSrc": "https://via.placeholder.com/150"
-  },
-  {
-    "name": "Ein Name",
-    "role": "Former Developer, The Appsteam",
-    "content": "It was a joy working with Fabrice. He is a very talented developer and a great team player. He is always willing to help and share his knowledge with others. I would highly recommend him for any development team.",
+    "role": "Developer",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "avatarSrc": "https://via.placeholder.com/150"
   }
 ]
