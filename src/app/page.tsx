@@ -47,12 +47,10 @@ export default function Home() {
           <div className="w-32 h-1 bg-blue-600 rounded-full"></div>
         </Separator>
 
-        <div className="flex flex-col items-center justify-center px-4">
-          <SectionStartComponent
-            title="Testimonials"
-            description="Here you can find some testimonials from people I have worked with."
-          />
-        </div>
+        <SectionStartComponent
+          title="Testimonials"
+          description="Here you can find some testimonials from people I have worked with."
+        />
         <TaskbarComponent />
       </div>
     </main>
