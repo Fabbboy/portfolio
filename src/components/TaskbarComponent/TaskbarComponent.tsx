@@ -1,7 +1,29 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, User, MessageSquare } from "lucide-react";
+import { Home } from "lucide-react";
+import Link from "next/link";
+
+type Props = {
+  route: string;
+  setIsVisible: (isVisible: boolean) => void;
+  icon: React.ReactNode;
+};
+
+const Route: React.FC<Props> = ({ route, setIsVisible, icon }) => {
+  return (
+    <Link href={route} passHref>
+      <motion.button
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+        className="flex flex-col items-center justify-center space-y-1"
+        onClick={() => setIsVisible(false)}
+      >
+        {icon}
+      </motion.button>
+    </Link>
+  );
+};
 
 export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,38 +105,11 @@ export default function TaskbarComponent() {
             }}
             className="h-12 w-[300px] bg-neutral-800 text-white flex justify-around items-center shadow-lg rounded-full"
           >
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
-            >
-              <Home className="w-5 h-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
-            >
-              <Briefcase className="w-5 h-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
-            >
-              <User className="w-5 h-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
-            >
-              <MessageSquare className="w-5 h-5" />
-            </motion.button>
+            <Route
+              route="/"
+              setIsVisible={setIsVisible}
+              icon={<Home className="w-5 h-5" />}
+            />
           </motion.nav>
         )}
       </AnimatePresence>
