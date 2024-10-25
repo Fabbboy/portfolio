@@ -22,25 +22,21 @@ export default function TaskbarComponent() {
   useEffect(() => {
     if (isVisible) {
       setShowIndicator(false); // Hide indicator once navbar is visible
-      const timer = setTimeout(
-        () => {
-          if (!isMobile) {
-            setIsVisible(false);
-          }
-        },
-        isMobile ? 5000 : 3000
-      );
-      return () => clearTimeout(timer);
-    } else {
-      // Reset indicator when navbar is hidden
+
+      if (!isMobile) {
+        const timer = setTimeout(() => {
+          setIsVisible(false);
+          setShowIndicator(true); // Re-show indicator after hiding
+        }, 3000);
+        return () => clearTimeout(timer);
+      }
+    } else if (!isVisible) {
       const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
       return () => clearTimeout(indicatorTimer);
     }
   }, [isVisible, isMobile]);
 
-  const toggleTaskbar = () => {
-    setIsVisible((prev) => !prev);
-  };
+  const toggleTaskbar = () => setIsVisible((prev) => !prev);
 
   return (
     <div
@@ -84,7 +80,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
+              onClick={toggleTaskbar}
             >
               <Home className="w-5 h-5" />
             </motion.button>
@@ -92,7 +88,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
+              onClick={toggleTaskbar}
             >
               <Briefcase className="w-5 h-5" />
             </motion.button>
@@ -100,7 +96,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
+              onClick={toggleTaskbar}
             >
               <User className="w-5 h-5" />
             </motion.button>
@@ -108,7 +104,7 @@ export default function TaskbarComponent() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               className="flex flex-col items-center justify-center space-y-1"
-              onClick={() => setIsVisible(false)}
+              onClick={toggleTaskbar}
             >
               <MessageSquare className="w-5 h-5" />
             </motion.button>
