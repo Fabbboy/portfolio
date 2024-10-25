@@ -28,7 +28,7 @@ const NavRouteComponent: React.FC<Props> = ({ route, setIsVisible, icon }) => {
 export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
-  const TIMEOUT = 3000;
+  const TIMEOUT = 1000;
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const startHideTimeout = useCallback(() => {
@@ -42,23 +42,23 @@ export default function TaskbarComponent() {
   useEffect(() => {
     if (isVisible) {
       setShowIndicator(false);
-      startHideTimeout();
     } else {
       const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
       return () => clearTimeout(indicatorTimer);
     }
-  }, [isVisible, startHideTimeout]);
+  }, [isVisible]);
 
   const showTaskbar = () => {
     setIsVisible(true);
-    startHideTimeout();
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current); // Clear timeout on show
   };
 
   return (
     <div
       onMouseEnter={showTaskbar}
-      onMouseLeave={startHideTimeout}
+      onMouseLeave={startHideTimeout} // Only triggers timeout when mouse leaves
       onTouchStart={showTaskbar}
+      onTouchEnd={startHideTimeout} // Triggers timeout on touch end
       className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
     >
       <AnimatePresence>
@@ -71,8 +71,10 @@ export default function TaskbarComponent() {
               y: { repeat: Infinity, repeatType: "reverse", duration: 0.8 },
               opacity: { duration: 0.4, ease: "easeInOut" },
             }}
-            className="absolute bottom-6 transform -translate-x-1/2 rounded-full bg-blue-500 w-2 h-2"
-          />
+            className="absolute bottom-6 transform -translate-x-1/2 text-2xl"
+          >
+            🚀
+          </motion.div>
         )}
       </AnimatePresence>
 
