@@ -3,13 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
-
-type TestimonialItem = {
-  name: string;
-  role: string;
-  content: string;
-  avatarSrc: string;
-};
+import { TestimonialItem } from "./types";
 
 type TestimonialProps = {
   testimonial: TestimonialItem;

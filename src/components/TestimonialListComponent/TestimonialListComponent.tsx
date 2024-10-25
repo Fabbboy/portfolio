@@ -3,6 +3,7 @@ import SectionStartComponent from "../SectionStartComponent";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TestimonialComponent from "../TestimonialComponent";
+import { TestimonialItem } from "../TestimonialComponent/types";
 
 const TestimonialListComponent = () => {
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);

@@ -1,4 +1,4 @@
-interface TestimonialItem {
+export interface TestimonialItem {
   name: string;
   role: string;
   content: string;
