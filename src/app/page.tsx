@@ -6,6 +6,7 @@ import ProjectListComponent from "@/components/ProjectListComponent";
 import SkillsListComponent from "@/components/SkillsListComponent";
 import SectionStartComponent from "@/components/SectionStartComponent";
 import TaskbarComponent from "@/components/TaskbarComponent";
+import TestimonialListComponent from "@/components/TestimonialListComponent";
 
 export default function Home() {
   return (
@@ -47,12 +48,10 @@ export default function Home() {
           <div className="w-32 h-1 bg-blue-600 rounded-full"></div>
         </Separator>
 
-        <div className="flex flex-col items-center justify-center px-4">
-          <SectionStartComponent
-            title="Testimonials"
-            description="Here you can find some testimonials from people I have worked with."
-          />
-        </div>
+        <TestimonialListComponent />
+        <footer className="flex justify-center items-center text-blue-400 text-sm">
+          <p>&copy; 2024 Fabrice Schaub</p>
+        </footer>
       </div>
       <TaskbarComponent />
     </main>
