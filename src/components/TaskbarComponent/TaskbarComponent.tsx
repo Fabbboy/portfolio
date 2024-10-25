@@ -7,7 +7,7 @@ export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showIndicator, setShowIndicator] = useState(true);
-  let hideTimer;
+  let hideTimer: NodeJS.Timeout;
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
