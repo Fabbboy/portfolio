@@ -2,7 +2,7 @@ import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { CalendarIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
-import { Project, projectStatusMap } from "../ProjectListComponent/types";
+import { Project, projectStatusMap } from "./types";
 
 type Props = {
   project: Project;

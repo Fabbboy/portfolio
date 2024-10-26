@@ -8,18 +8,12 @@ import { TestimonialItem } from "../TestimonialComponent/types";
 
 export default function TestimonialListComponent() {
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
-  const [host, setHost] = useState<string>("");
-
-  useEffect(() => {
-    setHost(window.location.href);
-  }, []);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
-      if (!host) return;
       try {
         const response = await axios.get<TestimonialItem[]>(
-          `${host}data/testimonials.json`
+          `data/testimonials.json`
         );
         setTestimonials(response.data);
       } catch (error) {
@@ -28,7 +22,7 @@ export default function TestimonialListComponent() {
     };
 
     fetchTestimonials();
-  }, [host]);
+  }, []);
 
   return (
     <>

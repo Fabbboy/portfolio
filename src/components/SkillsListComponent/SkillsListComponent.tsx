@@ -7,19 +7,10 @@ import { SkillItem } from "../SkillItemComponent/types";
 
 const SkillsListComponent = () => {
   const [projects, setProjects] = useState<SkillItem[]>([]);
-  const [host, setHost] = useState<string>("");
-
-  useEffect(() => {
-    setHost(window.location.href);
-  }, []);
-
   useEffect(() => {
     const fetchProjects = async () => {
-      if (!host) return;
       try {
-        const response = await axios.get<SkillItem[]>(
-          `${host}data/skills.json`
-        );
+        const response = await axios.get<SkillItem[]>(`data/skills.json`);
         setProjects(response.data);
       } catch (error) {
         console.error(error);
@@ -27,7 +18,7 @@ const SkillsListComponent = () => {
     };
 
     fetchProjects();
-  }, [host]);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center px-4">

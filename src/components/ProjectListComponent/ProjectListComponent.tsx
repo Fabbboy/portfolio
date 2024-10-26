@@ -1,32 +1,24 @@
 "use client";
 import { useEffect, useState } from "react";
 import ProjectComponent from "../ProjectComponent";
-import { Project } from "./types";
+import { Project } from "../ProjectComponent/types";
 import axios from "axios";
 import SectionStartComponent from "../SectionStartComponent";
 
 const ProjectListComponent = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [host, setHost] = useState<string>("");
-
-  useEffect(() => {
-    setHost(window.location.href);
-  }, []);
 
   useEffect(() => {
     const fetchProjects = async () => {
-      if (!host) return;
       try {
-        const response = await axios.get<Project[]>(
-          `${host}data/projects.json`
-        );
+        const response = await axios.get<Project[]>(`data/projects.json`);
         setProjects(response.data);
       } catch (error) {
         console.error(error);
       }
     };
     fetchProjects();
-  }, [host]);
+  }, []);
 
   return (
     <div className="flex flex-col items-center space-y-8">
