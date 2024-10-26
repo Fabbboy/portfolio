@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home } from "lucide-react";
+import { Home, NotebookIcon } from "lucide-react";
 import Link from "next/link";
 
 type Props = {
@@ -97,6 +97,11 @@ export default function TaskbarComponent() {
               route="/"
               setIsVisible={setIsVisible}
               icon={<Home className="w-5 h-5" />}
+            />
+            <NavRouteComponent
+              route="/blog"
+              setIsVisible={setIsVisible}
+              icon={<NotebookIcon className="w-5 h-5" />}
             />
           </motion.nav>
         )}
