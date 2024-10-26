@@ -6,7 +6,6 @@ import Link from "next/link";
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 
