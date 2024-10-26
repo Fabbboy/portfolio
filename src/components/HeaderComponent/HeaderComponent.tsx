@@ -10,7 +10,11 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 
-const HeaderComponent = () => {
+type Props = {
+  pageName?: string;
+}
+
+const HeaderComponent: React.FC<Props> = ({ pageName }) => {
   const openLink = (url: string) => {
     window.open(url);
   };
@@ -20,7 +24,7 @@ const HeaderComponent = () => {
       <CardHeader className="p-0">
         <CardTitle>
           <nav className="flex justify-between items-center mx-auto">
-            <TitleComponent title="Portfolio" />
+            <TitleComponent title={pageName || "Portfolio"} />
             <div className="flex items-center space-x-2">
               <Button
                 variant="outline"

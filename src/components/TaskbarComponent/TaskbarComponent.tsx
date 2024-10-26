@@ -3,6 +3,12 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, NotebookIcon } from "lucide-react";
 import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@radix-ui/react-tooltip";
 
 type Props = {
   route: string;
@@ -12,16 +18,25 @@ type Props = {
 
 const NavRouteComponent: React.FC<Props> = ({ route, setIsVisible, icon }) => {
   return (
-    <Link href={route} passHref>
-      <motion.button
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.9 }}
-        className="flex flex-col items-center justify-center space-y-1"
-        onClick={() => setIsVisible(false)}
-      >
-        {icon}
-      </motion.button>
-    </Link>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Link href={route} passHref>
+          <motion.button
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col items-center justify-center space-y-1"
+            onClick={() => setIsVisible(false)}
+          >
+            {icon}
+          </motion.button>
+        </Link>
+      </TooltipTrigger>
+      <TooltipContent side="top" align="center">
+        <div className="p-2 bg-neutral-700 text-neutral-100 rounded-lg shadow-lg m-2">
+          <p className="text-sm font-semibold">Routes to: {route}</p>
+        </div>
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
@@ -56,9 +71,9 @@ export default function TaskbarComponent() {
   return (
     <div
       onMouseEnter={showTaskbar}
-      onMouseLeave={startHideTimeout} // Only triggers timeout when mouse leaves
+      onMouseLeave={startHideTimeout}
       onTouchStart={showTaskbar}
-      onTouchEnd={startHideTimeout} // Triggers timeout on touch end
+      onTouchEnd={startHideTimeout}
       className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
     >
       <AnimatePresence>
