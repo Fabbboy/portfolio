@@ -58,53 +58,57 @@ const config: Config = {
         },
       },
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      typography: (theme: (arg0: string) => any) => ({
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme("colors.neutral.300"),
-            fontSize: "0.875rem", // Smaller font size
-            lineHeight: "1.5", // Adjust line height to be more compact
+            fontSize: "0.85rem", // Adjusted to be slightly smaller for readability
+            lineHeight: "1.4", // Tighter line height for compact layout
             h1: {
-              color: theme("colors.blue.400"),
-              fontSize: "1.5rem", // Smaller h1 size
-              marginBottom: "0.4em", // Reduce space below h1
-            },
-            h2: {
-              color: theme("colors.blue.300"),
-              fontSize: "1.25rem", // Smaller h2 size
+              color: theme("colors.purple.400"),
+              fontSize: "1.25rem", // Smaller h1 size
               marginBottom: "0.3em",
             },
-            p: {
-              marginTop: "0.4em",
-              marginBottom: "0.4em",
-            },
-            a: {
-              color: theme("colors.blue.400"),
-              textDecoration: "underline",
-            },
-            blockquote: {
-              color: theme("colors.neutral.400"),
-              borderLeftColor: theme("colors.blue.500"),
-              fontStyle: "italic",
-              paddingLeft: "0.8em",
-              marginTop: "0.8em",
-              marginBottom: "0.8em",
-            },
-            li: {
-              marginTop: "0.2em",
+            h2: {
+              color: theme("colors.pink.300"),
+              fontSize: "1rem",
               marginBottom: "0.2em",
             },
-            pre: {
-              padding: "0.8em",
-              fontSize: "0.85rem",
+            p: {
+              marginTop: "0.3em",
+              marginBottom: "0.3em",
+            },
+            a: {
+              color: theme("colors.teal.300"),
+              textDecoration: "underline",
+              "&:hover": {
+                color: theme("colors.pink.400"),
+              },
+            },
+            blockquote: {
+              color: theme("colors.neutral.500"),
+              borderLeftColor: theme("colors.purple.500"),
+              fontStyle: "italic",
+              paddingLeft: "0.7em",
               marginTop: "0.6em",
               marginBottom: "0.6em",
             },
+            li: {
+              marginTop: "0.1em",
+              marginBottom: "0.1em",
+            },
+            pre: {
+              padding: "0.6em",
+              fontSize: "0.8rem",
+              marginTop: "0.4em",
+              marginBottom: "0.4em",
+            },
             code: {
-              color: theme("colors.blue.300"),
+              color: theme("colors.teal.300"),
               backgroundColor: theme("colors.neutral.800"),
-              borderRadius: "4px",
-              fontSize: "0.85rem", 
+              borderRadius: "3px",
+              fontSize: "0.8rem",
+              padding: "0.2em",
             },
           },
         },

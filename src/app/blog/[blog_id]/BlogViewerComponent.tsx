@@ -14,19 +14,23 @@ interface BlogContentProps {
 
 const components = {
   h1: ({ children }: { children: React.ReactNode }) => (
-    <h1 className="text-3xl font-bold text-blue-400 mb-4">{children}</h1>
+    <h1 className="text-xl md:text-2xl font-bold text-purple-300 mb-2 md:mb-3">
+      {children}
+    </h1>
   ),
   h2: ({ children }: { children: React.ReactNode }) => (
-    <h2 className="text-2xl font-semibold text-blue-300 mt-6 mb-4">
+    <h2 className="text-lg md:text-xl font-semibold text-purple-400 mt-4 md:mt-5 mb-2 md:mb-3">
       {children}
     </h2>
   ),
   p: ({ children }: { children: React.ReactNode }) => (
-    <p className="text-md text-neutral-200 leading-relaxed mb-4">{children}</p>
+    <p className="text-sm md:text-base text-neutral-300 leading-relaxed mb-3 md:mb-4">
+      {children}
+    </p>
   ),
   a: ({ children, ...props }: { children: React.ReactNode }) => (
     <a
-      className="text-blue-400 hover:underline"
+      className="text-teal-400 hover:underline"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
@@ -50,16 +54,15 @@ const components = {
         language={match[1]}
         PreTag="div"
         customStyle={{
-          backgroundColor: "transparent",
-          padding: "1em",
+          backgroundColor: "#282a36",
+          color: "#f8f8f2",
           borderRadius: "8px",
-          margin: "1em 0",
         }}
       >
         {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
     ) : (
-      <code className="bg-neutral-800 text-blue-200 rounded px-1">
+      <code className="bg-neutral-700 text-pink-400 rounded px-1 md:px-2">
         {children}
       </code>
     );
