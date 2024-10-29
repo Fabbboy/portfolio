@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
-  jit: true,
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -57,9 +56,37 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      typography: (theme: (path: string) => string) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.gray.300"),
+            h1: { color: theme("colors.blue.400") },
+            h2: { color: theme("colors.blue.300") },
+            a: { color: theme("colors.blue.400"), textDecoration: "underline" },
+            strong: { color: theme("colors.blue.400") },
+            blockquote: {
+              color: theme("colors.gray.400"),
+              borderLeftColor: theme("colors.blue.500"),
+              fontStyle: "italic",
+            },
+            code: {
+              color: theme("colors.blue.300"),
+              backgroundColor: theme("colors.gray.800"),
+              padding: "2px 4px",
+              borderRadius: "4px",
+            },
+            "code::before": { content: '""' },
+            "code::after": { content: '""' },
+          },
+        },
+      }),
     },
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
+  ],
 };
+
 export default config;
