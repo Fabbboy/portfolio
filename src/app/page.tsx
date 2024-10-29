@@ -3,7 +3,7 @@ import HeaderComponent from "../components/HeaderComponent";
 import HeroComponent from "../components/HeroComponent";
 import ProfileComponent from "@/components/ProfileComponent";
 import ProjectListComponent from "@/components/ProjectListComponent";
-import SkillsListComponent from "@/components/SkillsListComponent"; 
+import SkillsListComponent from "@/components/SkillsListComponent";
 import TaskbarComponent from "@/components/TaskbarComponent";
 import TestimonialListComponent from "@/components/TestimonialListComponent";
 
@@ -49,7 +49,10 @@ export default function Home() {
 
         <TestimonialListComponent />
         <footer className="flex justify-center items-center text-blue-400 text-sm">
-          <p>&copy; 2024 Fabrice Schaub</p>
+          <p>
+            &copy; 2024 Fabrice Schaub |{" "}
+            {process.env.NEXT_PUBLIC_BASE_PATH || "BasePath unavailable"}
+          </p>
         </footer>
       </div>
       <TaskbarComponent />
