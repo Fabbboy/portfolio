@@ -9,42 +9,6 @@
             "future"
         ],
         "icon": "Book",
-        "link": "blogs/list-of-projects.md"
-    },
-    {
-        "title": "Exploring Advanced C++ Techniques",
-        "date": "2024-10-15T14:00:00",
-        "description": "Deep dive into some advanced C++ techniques for low-level programming.",
-        "tags": [
-            "C++",
-            "low-level",
-            "programming"
-        ],
-        "icon": "Code",
-        "link": "blogs/cpp-advanced-techniques.md"
-    },
-    {
-        "title": "Introduction to Rust for System Programming",
-        "date": "2024-10-10T10:15:00",
-        "description": "An introductory guide to Rust, focusing on system programming concepts.",
-        "tags": [
-            "Rust",
-            "system programming",
-            "guide"
-        ],
-        "icon": "Tool",
-        "link": "blogs/rust-intro.md"
-    },
-    {
-        "title": "A Deep Dive into Kubernetes Ingress",
-        "date": "2024-09-25T09:00:00",
-        "description": "Understanding Kubernetes Ingress, with practical examples.",
-        "tags": [
-            "Kubernetes",
-            "Ingress",
-            "DevOps"
-        ],
-        "icon": "Cluster",
-        "link": "blogs/kubernetes-ingress.md"
+        "link": "blog/curated-list-of-projects"
     }
 ]
