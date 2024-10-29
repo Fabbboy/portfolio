@@ -1,10 +1,9 @@
-import moment from "moment";
-
 export type PostIcon = "Book" | "Code" | "Invalid";
 export type BlogPost = {
   title: string;
   icon: PostIcon;
   description: string;
   tags: string[];
-  date: moment.Moment;
+  date: string;
+  link: string;
 };

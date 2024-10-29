@@ -2,6 +2,8 @@ import { Book, BoxIcon, CodeIcon } from "lucide-react";
 import { BlogPost, PostIcon } from "./types";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import moment from "moment";
+import Link from "next/link";
 
 type BlogEntryComponentProps = {
   blogPost: BlogPost;
@@ -25,7 +27,7 @@ const BlogEntryComponent: React.FC<BlogEntryComponentProps> = ({
         <div>
           <h3 className="text-lg font-semibold text-white">{blogPost.title}</h3>
           <p className="text-xs text-neutral-400">
-            {blogPost.date.format("MMMM Do, YYYY")}
+            {moment(blogPost.date, "YYYY-MM-DD:HH:mm:ss").fromNow()}
           </p>
         </div>
       </div>
@@ -46,12 +48,14 @@ const BlogEntryComponent: React.FC<BlogEntryComponentProps> = ({
               </Badge>
             ))}
           </div>
-          <Button
-            variant="ghost"
-            className="text-blue-400 hover:text-blue-300 hover:bg-neutral-700 text-sm bg-neutral-800"
-          >
-            Read More
-          </Button>
+          <Link href={blogPost.link}>
+            <Button
+              variant="ghost"
+              className="text-blue-400 hover:text-blue-300 hover:bg-neutral-700 text-sm bg-neutral-800"
+            >
+              Read More
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

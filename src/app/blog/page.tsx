@@ -1,12 +1,29 @@
+"use client";
 import BlogEntryComponent from "@/components/BlogEntryComponent";
+import { BlogPost } from "@/components/BlogEntryComponent/types";
 import HeaderComponent from "@/components/HeaderComponent";
 import SectionStartComponent from "@/components/SectionStartComponent";
 import TaskbarComponent from "@/components/TaskbarComponent";
 import { Input } from "@/components/ui/input";
+import axios from "axios";
 import { SearchIcon } from "lucide-react";
-import moment from "moment";
+import { useEffect, useState } from "react";
 
 export default function BlogPage() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get<BlogPost[]>(`data/blogs.json`);
+        setPosts(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchProjects();
+  }, []);
+
   return (
     <main className="flex flex-col min-h-screen w-full p-4 md:p-8 space-y-6 md:space-y-10">
       <HeaderComponent pageName="Blog" />
@@ -27,16 +44,13 @@ export default function BlogPage() {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 w-full md:w-1/2 mx-auto">
-        <BlogEntryComponent
-          blogPost={{
-            title: "Hello World",
-            icon: "Code",
-            description:
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-            tags: ["test"],
-            date: moment(),
-          }}
-        />
+        {posts.length > 0 &&
+          posts
+            .slice(0)
+            .reverse()
+            .map((post, index) => (
+              <BlogEntryComponent key={index} blogPost={post} />
+            ))}
       </div>
       <TaskbarComponent />
     </main>
