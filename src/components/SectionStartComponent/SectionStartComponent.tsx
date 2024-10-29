@@ -1,6 +1,6 @@
 type Props = {
   title: string;
-  description: string;
+  description?: string;
 };
 
 const SectionStartComponent: React.FC<Props> = ({ title, description }) => {
@@ -9,9 +9,11 @@ const SectionStartComponent: React.FC<Props> = ({ title, description }) => {
       <p className="text-2xl md:text-4xl font-bold text-blue-400 text-center">
         {title}
       </p>
-      <span className="text-blue-200 text-center text-base md:text-lg max-w-screen-md">
-        {description}
-      </span>
+      {description && (
+        <span className="text-blue-200 text-center text-base md:text-lg max-w-screen-md">
+          {description}
+        </span>
+      )}
     </div>
   );
 };
