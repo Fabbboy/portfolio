@@ -1,4 +1,4 @@
-export type PostIcon = "Book" | "Code" | "Invalid";
+export type PostIcon = "Book" | "Code" | "Tool";
 export type BlogPost = {
   title: string;
   icon: PostIcon;

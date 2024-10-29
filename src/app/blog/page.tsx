@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -23,6 +24,13 @@ export default function BlogPage() {
     };
     fetchProjects();
   }, []);
+
+  const filteredPosts = posts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.link.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <main className="flex flex-col min-h-screen w-full p-4 md:p-8 space-y-6 md:space-y-10">
@@ -38,19 +46,24 @@ export default function BlogPage() {
             <Input
               type="text"
               placeholder="Search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2 bg-neutral-800 text-neutral-100 rounded-lg shadow-lg border border-neutral-700"
             />
           </div>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 w-full md:w-1/2 mx-auto">
-        {posts.length > 0 &&
-          posts
+        {filteredPosts.length > 0 ? (
+          filteredPosts
             .slice(0)
             .reverse()
             .map((post, index) => (
               <BlogEntryComponent key={index} blogPost={post} />
-            ))}
+            ))
+        ) : (
+          <p className="text-neutral-400 text-center">No posts found</p>
+        )}
       </div>
       <TaskbarComponent />
     </main>
