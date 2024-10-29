@@ -1,7 +1,6 @@
 import HeaderComponent from "@/components/HeaderComponent";
 import SectionStartComponent from "@/components/SectionStartComponent";
 import TaskbarComponent from "@/components/TaskbarComponent";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 
