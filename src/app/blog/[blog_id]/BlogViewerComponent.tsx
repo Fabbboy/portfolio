@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-interface BlogContentFetcherProps {
+interface BlogContentProps {
   blog_id: string;
 }
 
-export function BlogContentFetcher({ blog_id }: BlogContentFetcherProps) {
+export function BlogViewerComponent({ blog_id }: BlogContentProps) {
   const [postContent, setPostContent] = useState<string>("");
 
   useEffect(() => {
