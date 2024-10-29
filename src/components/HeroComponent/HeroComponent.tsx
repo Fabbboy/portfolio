@@ -58,6 +58,9 @@ const HeroComponent = () => {
           <span>Download CV</span>
         </Button>
       </div>
+      <p className="text-center text-neutral-300 mt-4">
+        Keep scrolling to learn more about me!
+      </p>
     </div>
   );
 };
