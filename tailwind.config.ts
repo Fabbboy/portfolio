@@ -58,7 +58,7 @@ const config: Config = {
         },
       },
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      typography: (theme) => ({
+      typography: (theme: (path: string) => string) => ({
         DEFAULT: {
           css: {
             color: theme("colors.neutral.300"),
