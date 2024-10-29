@@ -4,6 +4,7 @@ import HeadlineComponent from "../HeadlineComponent";
 import TitleComponent from "../TitleComponent";
 import moment from "moment";
 import Image from "next/image";
+import { BASEPATH } from "@/app/globals";
 
 const ProfileComponent = () => {
   const startedProgramming = moment("2018-01-01");
@@ -38,7 +39,7 @@ const ProfileComponent = () => {
       {/* Image Container */}
       <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 flex justify-center md:justify-center">
         <Image
-          src="/profile.jpg"
+          src={`${BASEPATH}/profile.jpg`}
           alt="Profile Picture"
           width={400}
           height={400}

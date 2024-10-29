@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TestimonialComponent from "../TestimonialComponent";
 import { TestimonialItem } from "../TestimonialComponent/types";
+import { BASEPATH } from "@/app/globals";
 
 export default function TestimonialListComponent() {
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
@@ -13,7 +14,7 @@ export default function TestimonialListComponent() {
     const fetchTestimonials = async () => {
       try {
         const response = await axios.get<TestimonialItem[]>(
-          `data/testimonials.json`
+          `${BASEPATH}/data/testimonials.json`
         );
         setTestimonials(response.data);
       } catch (error) {

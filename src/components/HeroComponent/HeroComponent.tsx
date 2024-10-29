@@ -3,13 +3,14 @@ import { ClipboardIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
+import { BASEPATH } from "@/app/globals";
 
 const HeroComponent = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full w-full space-y-6 px-4">
       <Image
         className="w-36 h-36 md:w-48 md:h-48 rounded-full"
-        src="/imoji.jpg"
+        src={`${BASEPATH}/imoji.jpg`}
         alt="Avatar"
         width={144}
         height={144}

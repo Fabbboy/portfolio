@@ -4,13 +4,16 @@ import SectionStartComponent from "../SectionStartComponent";
 import SkillItemComponent from "../SkillItemComponent";
 import axios from "axios";
 import { SkillItem } from "../SkillItemComponent/types";
+import { BASEPATH } from "@/app/globals";
 
 const SkillsListComponent = () => {
   const [projects, setProjects] = useState<SkillItem[]>([]);
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get<SkillItem[]>(`data/skills.json`);
+        const response = await axios.get<SkillItem[]>(
+          `${BASEPATH}/data/skills.json`
+        );
         setProjects(response.data);
       } catch (error) {
         console.error(error);

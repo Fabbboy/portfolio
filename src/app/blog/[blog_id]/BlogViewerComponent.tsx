@@ -1,4 +1,5 @@
 "use client";
+import { BASEPATH } from "@/app/globals";
 import HeaderComponent from "@/components/HeaderComponent";
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -14,8 +15,8 @@ export function BlogViewerComponent({ blog_id }: BlogContentProps) {
 
   useEffect(() => {
     async function fetchPostContent() {
-      const content = await fetch(`/blogs/${blog_id}.md`).then((res) =>
-        res.text()
+      const content = await fetch(`${BASEPATH}/blogs/${blog_id}.md`).then(
+        (res) => res.text()
       );
       setPostContent(content);
 

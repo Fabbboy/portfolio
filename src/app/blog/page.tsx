@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { SearchIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { BASEPATH } from "../globals";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -16,7 +17,7 @@ export default function BlogPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get<BlogPost[]>(`data/blogs.json`);
+        const response = await axios.get<BlogPost[]>(`${BASEPATH}/data/blogs.json`);
         setPosts(response.data);
       } catch (error) {
         console.error(error);

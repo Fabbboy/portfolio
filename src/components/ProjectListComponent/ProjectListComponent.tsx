@@ -4,6 +4,7 @@ import ProjectComponent from "../ProjectComponent";
 import { Project } from "../ProjectComponent/types";
 import axios from "axios";
 import SectionStartComponent from "../SectionStartComponent";
+import { BASEPATH } from "@/app/globals";
 
 const ProjectListComponent = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -11,7 +12,7 @@ const ProjectListComponent = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get<Project[]>(`data/projects.json`);
+        const response = await axios.get<Project[]>(`${BASEPATH}/data/projects.json`);
         setProjects(response.data);
       } catch (error) {
         console.error(error);
