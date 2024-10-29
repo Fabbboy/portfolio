@@ -1,8 +1,10 @@
+import BlogEntryComponent from "@/components/BlogEntryComponent";
 import HeaderComponent from "@/components/HeaderComponent";
 import SectionStartComponent from "@/components/SectionStartComponent";
 import TaskbarComponent from "@/components/TaskbarComponent";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
+import moment from "moment";
 
 export default function BlogPage() {
   return (
@@ -24,7 +26,18 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-6"></div>
+      <div className="grid grid-cols-1 gap-6 w-full md:w-1/2 mx-auto">
+        <BlogEntryComponent
+          blogPost={{
+            title: "Hello World",
+            icon: "Code",
+            description:
+              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            tags: ["test"],
+            date: moment(),
+          }}
+        />
+      </div>
       <TaskbarComponent />
     </main>
   );
