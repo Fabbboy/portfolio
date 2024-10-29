@@ -16,10 +16,6 @@
     "icon": "icons/html.svg"
   },
   {
-    "name": "RaspberryPi",
-    "icon": "icons/raspberry.svg"
-  },
-  {
     "name": "Python",
     "icon": "icons/python.svg"
   },
