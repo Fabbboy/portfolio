@@ -52,8 +52,7 @@ const NavRouteComponent: React.FC<Props> = ({
 
 export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
-  const [showIndicator, setShowIndicator] = useState(true);
-  const TIMEOUT = 1000;
+  const BUFFER_TIME = 2000;
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -66,53 +65,33 @@ export default function TaskbarComponent() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const startHideTimeout = useCallback(() => {
+  const handleScroll = useCallback(() => {
+    setIsVisible(true);
+
     if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     hideTimerRef.current = setTimeout(() => {
       setIsVisible(false);
-      setShowIndicator(true);
-    }, TIMEOUT);
-  }, [TIMEOUT]);
+    }, BUFFER_TIME);
+  }, [BUFFER_TIME]);
 
   useEffect(() => {
-    if (isVisible) {
-      setShowIndicator(false);
-    } else {
-      const indicatorTimer = setTimeout(() => setShowIndicator(true), 1000);
-      return () => clearTimeout(indicatorTimer);
-    }
-  }, [isVisible]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   const showTaskbar = () => {
     setIsVisible(true);
-    if (hideTimerRef.current) clearTimeout(hideTimerRef.current); // Clear timeout on show
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
   };
 
   return (
     <div
       onMouseEnter={showTaskbar}
-      onMouseLeave={startHideTimeout}
+      onMouseLeave={() => handleScroll()}
       onTouchStart={showTaskbar}
-      onTouchEnd={startHideTimeout}
+      onTouchEnd={() => handleScroll()}
       className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
     >
-      <AnimatePresence>
-        {!isVisible && showIndicator && (
-          <motion.div
-            initial={{ y: 0, opacity: 0 }}
-            animate={{ y: -10, opacity: 1 }}
-            exit={{ y: 0, opacity: 0 }}
-            transition={{
-              y: { repeat: Infinity, repeatType: "reverse", duration: 0.8 },
-              opacity: { duration: 0.4, ease: "easeInOut" },
-            }}
-            className="absolute bottom-6 transform -translate-x-1/2 text-2xl"
-          >
-            🚀
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <AnimatePresence>
         {isVisible && (
           <motion.nav
