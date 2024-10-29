@@ -5,7 +5,7 @@ dotenv.config({ path: "prod.env" });
 const nextConfig = {
   output: "export",
   distDir: "build",
-  basePath: process.env.BASE_PATH || "",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   images: {
     unoptimized: true,
   },
