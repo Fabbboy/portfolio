@@ -40,7 +40,7 @@ const BlogEntryComponent: React.FC<BlogEntryComponentProps> = ({
               <Badge
                 key={index}
                 variant="secondary"
-                className="bg-neutral-700 text-neutral-300 text-xs px-2 py-1"
+                className="bg-neutral-700 text-neutral-300 text-xs px-2 py-1 hover:bg-neutral-600"
               >
                 {tag}
               </Badge>
