@@ -9,7 +9,7 @@ const HeroComponent = () => {
     <div className="flex flex-col items-center justify-center h-full w-full space-y-6 px-4">
       <Image
         className="w-36 h-36 md:w-48 md:h-48 rounded-full"
-        src="imoji.jpg"
+        src="/imoji.jpg"
         alt="Avatar"
         width={144}
         height={144}

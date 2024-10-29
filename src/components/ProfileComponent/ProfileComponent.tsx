@@ -38,8 +38,8 @@ const ProfileComponent = () => {
       {/* Image Container */}
       <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 flex justify-center md:justify-center">
         <Image
-          src="profile.jpg"
-          alt="Your Image"
+          src="/profile.jpg"
+          alt="Profile Picture"
           width={400}
           height={400}
           className="w-full h-auto sm:w-64 sm:h-64 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-sm"

@@ -1,4 +1,6 @@
+import HeaderComponent from "@/components/HeaderComponent";
 import { BlogContentFetcher } from "./BlogFetcher";
+import TaskbarComponent from "@/components/TaskbarComponent";
 
 interface BlogPageProps {
   params: {
@@ -17,8 +19,10 @@ export default function SelectedBlogPage({ params }: BlogPageProps) {
   const { blog_id } = params;
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen w-full p-4 md:p-8 space-y-6 md:space-y-10">
+      <HeaderComponent pageName="Blog" />
       <BlogContentFetcher blog_id={blog_id} />
+      <TaskbarComponent />
     </div>
   );
 }
