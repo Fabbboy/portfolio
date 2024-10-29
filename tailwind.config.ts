@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -56,37 +57,61 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
-      typography: (theme: (path: string) => string) => ({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      typography: (theme: (arg0: string) => any) => ({
         DEFAULT: {
           css: {
-            color: theme("colors.gray.300"),
-            h1: { color: theme("colors.blue.400") },
-            h2: { color: theme("colors.blue.300") },
-            a: { color: theme("colors.blue.400"), textDecoration: "underline" },
-            strong: { color: theme("colors.blue.400") },
+            color: theme("colors.neutral.300"),
+            fontSize: "0.875rem", // Smaller font size
+            lineHeight: "1.5", // Adjust line height to be more compact
+            h1: {
+              color: theme("colors.blue.400"),
+              fontSize: "1.5rem", // Smaller h1 size
+              marginBottom: "0.4em", // Reduce space below h1
+            },
+            h2: {
+              color: theme("colors.blue.300"),
+              fontSize: "1.25rem", // Smaller h2 size
+              marginBottom: "0.3em",
+            },
+            p: {
+              marginTop: "0.4em",
+              marginBottom: "0.4em",
+            },
+            a: {
+              color: theme("colors.blue.400"),
+              textDecoration: "underline",
+            },
             blockquote: {
-              color: theme("colors.gray.400"),
+              color: theme("colors.neutral.400"),
               borderLeftColor: theme("colors.blue.500"),
               fontStyle: "italic",
+              paddingLeft: "0.8em",
+              marginTop: "0.8em",
+              marginBottom: "0.8em",
+            },
+            li: {
+              marginTop: "0.2em",
+              marginBottom: "0.2em",
+            },
+            pre: {
+              padding: "0.8em",
+              fontSize: "0.85rem",
+              marginTop: "0.6em",
+              marginBottom: "0.6em",
             },
             code: {
               color: theme("colors.blue.300"),
-              backgroundColor: theme("colors.gray.800"),
-              padding: "2px 4px",
+              backgroundColor: theme("colors.neutral.800"),
               borderRadius: "4px",
+              fontSize: "0.85rem", 
             },
-            "code::before": { content: '""' },
-            "code::after": { content: '""' },
           },
         },
       }),
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@tailwindcss/line-clamp"),
-    require("@tailwindcss/typography"),
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 
 export default config;
