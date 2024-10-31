@@ -10,7 +10,7 @@ const ImprintPage = () => {
 
   useEffect(() => {
     async function fetchPostContent() {
-      const content = await fetch(`${BASEPATH}/imprint.md`).then((res) =>
+      const content = await fetch(`${BASEPATH}/data/imprint.md`).then((res) =>
         res.text()
       );
       setImpressumContent(content);

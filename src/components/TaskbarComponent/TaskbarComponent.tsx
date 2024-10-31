@@ -68,8 +68,8 @@ export default function TaskbarComponent() {
       icon: <NotebookIcon className="w-5 h-5" />,
     },
     {
-      route: "/impressum",
-      tooltip: "Impressum",
+      route: "/imprint",
+      tooltip: "imprint",
       icon: <PaperclipIcon className="w-5 h-5" />,
     },
   ];
