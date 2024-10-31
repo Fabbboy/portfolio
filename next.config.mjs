@@ -3,7 +3,7 @@ dotenv.config({ path: "prod.env" });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  output: process.env.BUILD_STATIC ? "static" : "server",
   distDir: "build",
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   images: {
