@@ -1,4 +1,4 @@
-# Impressum
+# Imprint
 
 ## Company Information
 - **Name of Business or Website:** Fabrice Schaub

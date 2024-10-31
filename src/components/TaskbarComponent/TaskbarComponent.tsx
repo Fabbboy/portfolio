@@ -52,17 +52,9 @@ const NavRouteComponent: React.FC<Props> = ({
 
 export default function TaskbarComponent() {
   const [isVisible, setIsVisible] = useState(false);
-  const BUFFER_TIME = 2000;
+  const BUFFER_TIME = 1500;
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-
-  /*<NavRouteComponent
-              route="/"
-              tooltip="Home"
-              setIsVisible={setIsVisible}
-              icon={<Home className="w-5 h-5" />}
-              isMobile={isMobile}
-            /> */
 
   const routes = [
     {
@@ -93,7 +85,6 @@ export default function TaskbarComponent() {
 
   const handleScroll = useCallback(() => {
     setIsVisible(true);
-
     if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     hideTimerRef.current = setTimeout(() => {
       setIsVisible(false);
@@ -116,7 +107,8 @@ export default function TaskbarComponent() {
       onMouseLeave={() => handleScroll()}
       onTouchStart={showTaskbar}
       onTouchEnd={() => handleScroll()}
-      className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center"
+      className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-20 flex justify-center items-center 
+        ${isVisible ? "pointer-events-auto" : "pointer-events-none"}`}
     >
       <AnimatePresence>
         {isVisible && (
@@ -131,7 +123,7 @@ export default function TaskbarComponent() {
               duration: 0.4,
               ease: "easeInOut",
             }}
-            className="h-12 w-[300px] bg-neutral-800 text-white flex justify-around items-center shadow-lg rounded-full"
+            className="h-12 w-[300px] bg-neutral-800/80 text-white flex justify-around items-center shadow-lg rounded-full"
           >
             {routes.map((route, index) => (
               <NavRouteComponent

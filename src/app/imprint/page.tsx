@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { BASEPATH } from "../globals";
 import MarkdownComponent from "@/components/MarkdownComponent";
 
-const ShowroomPage = () => {
+const ImprintPage = () => {
   const [impressumContent, setImpressumContent] = useState<string>("");
 
   useEffect(() => {
     async function fetchPostContent() {
-      const content = await fetch(`${BASEPATH}/impressum.md`).then((res) =>
+      const content = await fetch(`${BASEPATH}/imprint.md`).then((res) =>
         res.text()
       );
       setImpressumContent(content);
@@ -34,4 +34,4 @@ const ShowroomPage = () => {
   );
 };
 
-export default ShowroomPage;
+export default ImprintPage;
