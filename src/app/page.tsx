@@ -48,9 +48,6 @@ export default function Home() {
         </Separator>
 
         <TestimonialListComponent />
-        <footer className="flex justify-center items-center text-blue-400 text-sm">
-          <p>&copy; 2024 Fabrice Schaub {process.env.NEXT_PUBLIC_BASE_PATH}</p>
-        </footer>
       </div>
       <TaskbarComponent />
     </main>

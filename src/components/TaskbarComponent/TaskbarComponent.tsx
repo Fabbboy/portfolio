@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, NotebookIcon } from "lucide-react";
+import { Home, NotebookIcon, PaperclipIcon } from "lucide-react";
 import Link from "next/link";
 import {
   Tooltip,
@@ -56,6 +56,32 @@ export default function TaskbarComponent() {
   const hideTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  /*<NavRouteComponent
+              route="/"
+              tooltip="Home"
+              setIsVisible={setIsVisible}
+              icon={<Home className="w-5 h-5" />}
+              isMobile={isMobile}
+            /> */
+
+  const routes = [
+    {
+      route: "/",
+      tooltip: "Home",
+      icon: <Home className="w-5 h-5" />,
+    },
+    {
+      route: "/blog",
+      tooltip: "Blog",
+      icon: <NotebookIcon className="w-5 h-5" />,
+    },
+    {
+      route: "/impressum",
+      tooltip: "Impressum",
+      icon: <PaperclipIcon className="w-5 h-5" />,
+    },
+  ];
+
   useEffect(() => {
     setIsMobile(window.innerWidth <= 640);
     const handleResize = () => {
@@ -107,20 +133,16 @@ export default function TaskbarComponent() {
             }}
             className="h-12 w-[300px] bg-neutral-800 text-white flex justify-around items-center shadow-lg rounded-full"
           >
-            <NavRouteComponent
-              route="/"
-              tooltip="Home"
-              setIsVisible={setIsVisible}
-              icon={<Home className="w-5 h-5" />}
-              isMobile={isMobile}
-            />
-            <NavRouteComponent
-              route="/blog"
-              tooltip="Blog"
-              setIsVisible={setIsVisible}
-              icon={<NotebookIcon className="w-5 h-5" />}
-              isMobile={isMobile}
-            />
+            {routes.map((route, index) => (
+              <NavRouteComponent
+                key={index}
+                route={route.route}
+                tooltip={route.tooltip}
+                setIsVisible={setIsVisible}
+                icon={route.icon}
+                isMobile={isMobile}
+              />
+            ))}
           </motion.nav>
         )}
       </AnimatePresence>
