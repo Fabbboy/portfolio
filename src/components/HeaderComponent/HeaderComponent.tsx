@@ -9,11 +9,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
-import Link from "next/link";
 
 type Props = {
   pageName?: string;
-};
+}
 
 const HeaderComponent: React.FC<Props> = ({ pageName }) => {
   const openLink = (url: string) => {
@@ -63,15 +62,13 @@ const HeaderComponent: React.FC<Props> = ({ pageName }) => {
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
-              <Link href="/contact" passHref>
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg shadow-lg transition duration-300"
-                >
-                  <span>Get in Touch</span>
-                </Button>
-              </Link>
+              <Button
+                variant="secondary"
+                size="sm"
+                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg shadow-lg transition duration-300"
+              >
+                <span>Get in Touch</span>
+              </Button>
             </div>
           </nav>
         </CardTitle>

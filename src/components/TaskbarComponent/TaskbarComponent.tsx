@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, NotebookIcon, PaperclipIcon, ContactIcon } from "lucide-react";
+import { Home, NotebookIcon, PaperclipIcon } from "lucide-react";
 import Link from "next/link";
 import {
   Tooltip,
@@ -72,11 +72,6 @@ export default function TaskbarComponent() {
       tooltip: "imprint",
       icon: <PaperclipIcon className="w-5 h-5" />,
     },
-    {
-      route: "/contact",
-      tooltip: "Contact",
-      icon: <ContactIcon className="w-5 h-5" />,
-    }
   ];
 
   useEffect(() => {
